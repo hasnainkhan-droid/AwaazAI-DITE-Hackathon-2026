@@ -1,81 +1,197 @@
+
 # AwaazAI Pro — AI Citizen Complaint Assistant
 
-**DITE Hackathon 2026–27 · Public Service**
+**DITE Hackathon 2026–27 | Public Service**
 
 ## Team
-- Team name: **[ADD YOUR REGISTERED TEAM NAME]**
-- Members: **[ADD REGISTERED MEMBERS]**
 
-## Problem and solution
-Citizens face challenges documenting municipal problems in their own language and identifying likely public-service departments. AwaazAI uses Google Gemini to classify a civic complaint, suggest urgency, identify missing details, generate helpful questions, recommend a department **type**, and create a formal draft in English, Urdu, or Sindhi. It does not submit complaints to any agency.
+- **Project Name:** AwaazAI Pro
+- **Team Name:** [ADD REGISTERED TEAM NAME]
+- **Team Members:**
+  1. Hasnain
+  2. Abbas
+  3. Abu Zar
 
-## What AI does (judging criteria)
-- **Inputs:** City/area, citizen's words, selected report language, and optional answers to clarifying questions.
-- **AI:** Google Gemini API model `gemini-flash-lite-latest` and Pydantic JSON schema output.
-- **Outputs:** `category`, `category_localized`, `priority`, `priority_localized`, `summary`, `priority_reason`, `suggested_department`, `missing_details` (each has question and reason), `formal_complaint`, and three `next_steps`.
-- **Human role:** Citizen verifies facts and the appropriate office. This tool gives suggested routing only.
+## Problem and Solution
 
-## Features
-1. Premium responsive Streamlit interface, animated flowchart and example complaints.
-2. Missing-detail detection with follow-up questions and **Refine report** button.
-3. Full AI report content in English, Urdu, or Sindhi (local scripts; RTL display).
-4. Structured cards: category, suggested urgency, location, missing-detail count.
-5. Working letter view and UTF-8 TXT / JSON downloads.
-6. Animated five-stage complaint flowchart with interactive stage explorer and live stage status.
-7. Report readiness indicator based on 0–4 missing-detail questions (not an accuracy score).
-8. Visual Low/Medium/High urgency comparison (AI recommendation only).
-9. Before-vs-after revision comparison for refinement.
-10. Printable HTML report (open and Print → Save as PDF), alongside existing TXT/JSON downloads.
-11. Responsive microinteractions and reduced-motion accessibility.
-12. No government integration and no fabricated official contact details.
+Citizens often face difficulties documenting municipal problems in their own language, describing issues accurately, and identifying the appropriate public-service department.
 
-## Technology
-Python, Streamlit, Google GenAI SDK, Pydantic, custom CSS.
+**AwaazAI** is an AI-powered citizen complaint assistant designed to simplify this process.
 
-## Run locally
-1. Open the `AwaazAI_Pro` folder in VS Code.
-2. Run `python -m pip install -r requirements.txt`.
-3. Set your `GEMINI_API_KEY` in the Windows environment (or `.streamlit/secrets.toml` locally, ignored by Git).
-4. Run `python -m streamlit run app.py`.
-5. Open the local Streamlit URL in the terminal.
+Using Google Gemini AI, AwaazAI analyzes civic complaints, identifies missing information, suggests urgency levels and relevant department types, and generates professional complaint letters in English, Urdu, and Sindhi.
 
-## Deployment to Streamlit Community Cloud
-1. Push the source to a **public GitHub repository**; **never push API keys or secrets**.
-2. Visit https://share.streamlit.io/, sign in, choose **Create app**.
-3. Select repository and `app.py` entry point.
-4. Add `GEMINI_API_KEY = "<your key>"` in Streamlit Cloud **Secrets settings** (never in README/code).
-5. Deploy and test your URL in an incognito browser.
+AwaazAI is an independent assistance platform. It does not submit complaints directly to government departments.
 
-## Test cases
-- Clear drainage issue: expected category sanitation/sewerage, urgency backed by facts, possibly no missing details.
-- Vague complaint (`sewerage line damage`): AI should identify missing location/duration/impact and avoid inventing actual harm.
-- Urdu complaint + Urdu report: AI response content in Urdu script.
-- Sindhi complaint + Sindhi report: AI response content in Sindhi script.
-- Enter follow-up details then click Refine: report should update, with missing questions reduced if sufficient.
-- Click formal letter and all 3 report download types: verify files open, including Urdu/Sindhi Unicode.
-- Verify animated workflow starts in the input stage and updates after analysis; the government submission stage never shows complete.
-- Trigger missing-detail refinement and verify before-vs-after comparison.
-- Verify printable report opens offline and Print → Save as PDF works in Chrome.
-- Check mobile width and reduced-motion OS accessibility settings.
-- Check empty complaint and API error handling.
+## What AI Does
 
-## Safety & limitations
-- Independent demo, **not** an official government website; **does not submit** complaints.
-- Suggestions may be wrong or uncertain; verify routing, priority, and any translated wording.
-- Do not enter sensitive or unnecessary personally identifiable data. Gemini receives user-entered complaint text.
-- No real patient, citizen or student records used; demo cases are fictional.
-- Session state may be lost when browser refreshes. No database stores submissions.
-- External model availability and free-tier quotas can affect results.
+### Inputs
+- City and neighborhood
+- Citizen's complaint description
+- Selected language: English, Urdu, or Sindhi
+- Optional clarification details
 
-## Submission links
-- Public GitHub: [ADD LINK]
-- Live deployed app: [ADD LINK]
-- Demo video (3–5 minutes): [ADD GOOGLE DRIVE LINK]
+### AI Processing
+- Google Gemini API
+- Model: `gemini-flash-lite-latest`
+- Structured JSON output using Pydantic
+- Complaint classification
+- Urgency recommendation
+- Missing-information identification
+- Suggested department type
+- Formal complaint generation
 
-## Credits
-- Google Gemini API / Google GenAI SDK: https://ai.google.dev/gemini-api/docs
+### Outputs
+- Issue category
+- Suggested urgency level
+- Complaint summary
+- Priority explanation
+- Recommended department type
+- Missing-detail questions
+- Formal complaint letter
+- Recommended next steps
+
+### Human Responsibility
+Citizens must verify generated information and independently contact the appropriate department.
+
+## Key Features
+
+1. Premium responsive Streamlit interface.
+2. AI-powered civic complaint classification.
+3. English, Urdu, and Sindhi language support.
+4. Missing-information detection and follow-up questions.
+5. AI-assisted report refinement.
+6. Formal complaint letter generation.
+7. Suggested urgency and department type.
+8. Animated five-stage complaint workflow.
+9. Report readiness visualization.
+10. Low, Medium, and High urgency comparison.
+11. Before-and-after report refinement comparison.
+12. Downloadable UTF-8 TXT reports.
+13. Downloadable JSON reports.
+14. Printable HTML reports with Save as PDF support.
+15. Responsive design and accessibility features.
+16. Clear AI safety and government-independence disclaimers.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Application development |
+| Streamlit | Web application interface |
+| Google Gemini API | AI complaint analysis |
+| Google GenAI SDK | Gemini integration |
+| Pydantic | Structured response validation |
+| HTML/CSS | UI styling and animations |
+| GitHub | Source code repository |
+| Streamlit Cloud | Public web deployment |
+
+## How to Run Locally
+
+### Step 1 — Clone the Repository
+
+```bash
+git clone https://github.com/hasnainkhan-droid/AwaazAI-DITE-Hackathon-2026.git
+```
+
+### Step 2 — Open Project Directory
+
+```bash
+cd AwaazAI-DITE-Hackathon-2026
+```
+
+### Step 3 — Install Dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### Step 4 — Configure Gemini API Key
+
+Set the `GEMINI_API_KEY` environment variable or configure it securely in Streamlit Secrets.
+
+Never commit API keys to GitHub.
+
+### Step 5 — Start the Application
+
+```bash
+python -m streamlit run app.py
+```
+
+Open the local URL displayed in your terminal.
+
+## Live Application
+
+**AwaazAI Live Website:**
+
+https://awaazai-dite-hackathon-2026-v3jqdgre3buatcrzwqkuwt.streamlit.app/
+
+The deployed application allows citizens to analyze civic complaints using Gemini AI and generate downloadable complaint reports.
+
+## GitHub Repository
+
+**Public Source Code:**
+
+https://github.com/hasnainkhan-droid/AwaazAI-DITE-Hackathon-2026
+
+## Testing and Validation
+
+The following scenarios have been tested:
+
+- English-language complaint analysis
+- AI-generated category and urgency suggestions
+- Missing-information questions
+- Formal complaint letter generation
+- Urdu-language report generation
+- Sindhi-language report generation
+- TXT report download
+- JSON report download
+- Printable HTML report download
+- Public access through the deployed website
+
+Additional recommended tests include mobile responsiveness, report refinement, emergency safety handling, and AI API failure handling.
+
+## Safety and Limitations
+
+- AwaazAI is an independent demonstration project, not an official government website.
+- It does not submit complaints to any government agency.
+- AI-generated recommendations may be incomplete or incorrect.
+- Users should verify department suggestions and report details before submission.
+- Citizens should not provide unnecessary sensitive information.
+- User-entered complaint text is processed through the Google Gemini API.
+- No real citizen, patient, or student records are required for demonstration.
+- Session data may be lost on refresh.
+- AI service availability depends on external API access and quota limits.
+- The application is not a replacement for emergency services.
+
+## Demo Video
+
+**Google Drive Link:**
+
+[ADD DEMO VIDEO LINK]
+
+The demonstration will cover the application interface, Gemini AI analysis, multilingual support, missing-information detection, formal complaint generation, and downloadable reports.
+
+## Credits and References
+
+- Google Gemini API: https://ai.google.dev/gemini-api/docs
 - Streamlit: https://streamlit.io/
 - Pydantic: https://docs.pydantic.dev/
-- Google Fonts (DM Sans, Manrope, Noto Naskh Arabic): https://fonts.google.com/
+- Google Fonts: https://fonts.google.com/
 
-**Hackathon originality:** Build and commit during the official event window. Credit external libraries and templates. Do not reuse old submitted project code in violation of event rules.
+## Hackathon Information
+
+**Event:** DITE Hackathon 2026–27
+
+**Theme:** Public Service
+
+**Project:** AwaazAI Pro — AI Citizen Complaint Assistant
+
+**Team Members:** Hasnain, Abbas, Abu Zar
+
+**Development:** Python, Streamlit, Google Gemini API
+
+**Submission:** Public GitHub repository, live web deployment, and demonstration video.
+
+---
+
+**AwaazAI — Your City. Your Voice. Powered by AI.**
