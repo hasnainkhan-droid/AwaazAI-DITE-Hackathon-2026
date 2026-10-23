@@ -1,0 +1,34 @@
+AWAAZAI PRO — ANIMATED HACKATHON VERSION
+======================================
+
+BACK UP the last working AwaazAI folder before switching.
+
+1. Extract the ZIP to Desktop. Open the enclosed AwaazAI_Pro folder in VS Code.
+2. In VS Code Terminal, run:
+       python -m pip install -r requirements.txt
+       python -m streamlit run app.py
+3. Open the Local URL that appears in terminal (normally http://localhost:8501).
+   If a previous Streamlit project is running, stop it via Ctrl+C first.
+4. Gemini key: keep GEMINI_API_KEY in your Windows environment or Streamlit Cloud secrets.
+   Never paste an API key into app.py or a public GitHub repository.
+
+QUICK TESTS:
+- Flowchart: interactive stage explorer works even before running AI.
+- Incomplete: "Latifabad mein sewerage line damage hai."
+  Expect AI to identify missing details, if relevant.
+- Refine: supply a street, duration and actual observed effect. Check before/after cards.
+- Complete: enter all details; see if missing count reduces to 0.
+- Urdu and Sindhi: select language and verify report text.
+- Download: formal letter, plain-text report, JSON, and printable HTML.
+  Open printable HTML in your browser; Ctrl+P -> Save as PDF if desired.
+
+SUBMISSION CHECK (official guidelines):
+- PUBLIC GitHub repository with complete README / team names / credits
+- Live Streamlit Cloud link, with GEMINI_API_KEY in cloud secrets
+- 3-to-5-minute demo video, minimum 720p, uploaded to Google Drive
+- Test GitHub/live/video links in incognito
+- Submit the organizer Google Form before the 5-hour deadline
+- Do not push more code after the deadline
+
+IMPORTANT: AwaazAI is independent AI guidance; no governmental submission or verified routing.
+
